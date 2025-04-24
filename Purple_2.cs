@@ -55,8 +55,9 @@ namespace Lab_8
 
         public override string ToString()
         {
+            if (Output == null) return null;
             string ans = "";
-            foreach (var r in Output) ans += r + '\"';
+            foreach (var r in Output) ans += r + "\r\n";
             return ans;
         }
     }
