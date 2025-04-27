@@ -14,6 +14,11 @@ namespace Lab_8
         public Purple_4(string input, (string, char)[] codes) : base(input)
         {
             _output = null;
+            if (codes == null)
+            {
+                _codes = new (string, char)[0];
+                return;
+            }
             _codes = new (string, char)[codes.Length];
             Array.Copy(codes, _codes, codes.Length);
         }

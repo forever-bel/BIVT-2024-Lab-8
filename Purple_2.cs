@@ -57,7 +57,8 @@ namespace Lab_8
         {
             if (Output == null) return null;
             string ans = "";
-            foreach (var r in Output) ans += r + "\r\n";
+            for (int i = 0; i < Output.Length - 1; i++) ans += Output[i] + "\r\n";
+            ans += Output[Output.Length - 1];
             return ans;
         }
     }
