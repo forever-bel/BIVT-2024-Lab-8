@@ -57,7 +57,7 @@ namespace Lab_8
         {
             if (Output == null) return null;
             string ans = "";
-            for (int i = 0; i < Output.Length - 1; i++) ans += Output[i] + "\r\n";
+            for (int i = 0; i < Output.Length - 1; i++) ans += Output[i] + Environment.NewLine;
             ans += Output[Output.Length - 1];
             return ans;
         }
