@@ -28,8 +28,7 @@ namespace Lab_8
             {
                 if (text.Length > 50)
                 {
-                    index = text.Substring(0, 50).LastIndexOf(' ');
-                    if (text[50] == ' ') index = 50;
+                    index = text.Substring(0, 51).LastIndexOf(' ');
                     str = text.Substring(0, index);
                     text = text.Substring(index + 1);
                 }
@@ -39,15 +38,18 @@ namespace Lab_8
                     index = text.Length;
                     text = "";
                 }
-                var words = str.Split(' ');
-                int countspace = words.Length - 1;
-                if (countspace == 0) continue;
-                int dopspace = (50 - index) / countspace;
-                int extra = (50 - index) % countspace;
-                for (int i = 0; i < extra; i++) words[i] += " ";
-                string sep = " ";
-                for (int i = 0; i < dopspace; i++) sep += " ";
-                str = string.Join(sep, words);
+                if (str.Count(x => x == ' ') != 0)
+                {
+                    var words = str.Split(' ');
+                    int countspace = words.Length - 1;
+                    if (countspace == 0) continue;
+                    int dopspace = (50 - index) / countspace;
+                    int extra = (50 - index) % countspace;
+                    for (int i = 0; i < extra; i++) words[i] += " ";
+                    string sep = " ";
+                    for (int i = 0; i < dopspace; i++) sep += " ";
+                    str = string.Join(sep, words);
+                }
                 Array.Resize(ref _output, _output.Length + 1);
                 _output[_output.Length - 1] = str;
             }
